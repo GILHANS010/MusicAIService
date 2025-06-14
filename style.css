@@ -258,6 +258,51 @@ nav ul li a.active::after {
     transform: translateX(5px);
 }
 
+/* --- Hero Section Footer (Powered by & Scroll Down) --- */
+.hero-footer {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.powered-by {
+    font-family: var(--font-secondary);
+    color: var(--secondary-text-color);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.powered-by strong {
+    font-weight: 700;
+    color: var(--primary-text-color);
+}
+
+.scroll-down-indicator {
+    display: inline-block;
+    color: var(--primary-text-color);
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+}
+
+/* 스크롤 다운 아이콘을 위한 바운스 애니메이션 */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
 /* --- How It Works Section --- */
 .steps-container {
     display: flex;
@@ -736,6 +781,7 @@ footer {
     transform: scale(1.05);
 }
 
+
 .process-text .step-number {
     font-size: 4rem;
     font-weight: 700;
@@ -772,28 +818,51 @@ footer {
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 15px; /* 각 항목 사이의 간격 */
 }
 
 .keywords li {
-    background-color: var(--surface-color);
+    background-color: transparent; /* 배경색 제거 */
     border-radius: 8px;
-    padding: 12px 18px;
-    font-size: 0.95rem;
+    padding: 15px 0; /* 패딩 조정 */
+    font-size: 1rem;
     color: var(--primary-text-color);
-    border: 1px solid transparent;
+    border: none; /* 테두리 제거 */
     display: flex;
-    align-items: center;
-    transition: all var(--transition-speed);
+    align-items: flex-start; /* 아이콘을 상단에 정렬 */
+    transition: none; /* 기존 호버 효과 제거 */
 }
+
+/* 기존 호버 효과 제거 */
 .keywords li:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent-color);
+    transform: none;
+    border-color: transparent;
 }
 
 .keywords li i {
     color: var(--accent-color);
     margin-right: 12px;
+    margin-top: 5px; /* 텍스트와의 세로 정렬을 위한 미세 조정 */
+}
+
+.keyword-item {
+    display: flex;
+    flex-direction: column; /* 텍스트를 세로로 쌓음 */
+}
+
+.keyword-item strong {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    margin-bottom: 4px; /* 영문과 한글 사이 간격 */
+    line-height: 1.4;
+}
+
+.keyword-item .keyword-desc {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--secondary-text-color);
+    line-height: 1.4;
 }
 
 /* --- 반응형: Creation Process Section --- */
@@ -808,9 +877,10 @@ footer {
 }
 @media (max-width: 768px) {
     .keywords {
-        grid-template-columns: 1fr; /* 모바일에서는 키워드도 한 줄로 */
+        grid-template-columns: 1fr; /* 모바일에서는 키워드를 한 줄로 */
     }
     .process-text h3 {
         font-size: 1.8rem;
     }
 }
+

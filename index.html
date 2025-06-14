@@ -20,7 +20,8 @@
 
     <header>
         <nav class="container">
-            <a href="#" class="logo">QLAUDIO AI <i class="fas fa-microphone-alt"></i></a>
+            <!-- <a href="#" class="logo">MUSIC AI<i class="fas fa-microphone-alt"></i></a> -->
+            <a href="#" class="logo">MUSIC AI</i></a>
             <ul>
                 <li><a href="#hero">홈</a></li>
                 <li><a href="#how-it-works">제작 과정</a></li>
@@ -33,7 +34,6 @@
     </header>
 
     <main>
-
         <section id="hero">
             <video poster="video/Edited.mp4" 
                 autoplay loop muted playsinline class="hero-video">
@@ -47,7 +47,16 @@
                 <p class="subtitle">AI 기술이 당신의 이야기와 목소리를 감동적인 멜로디로 완성합니다.<br>특별한 선물, 영원한 추억, 나만의 음반 제작까지.</p>
                 <a href="#pricing" class="cta-button hero-cta">나만의 노래 만들기 <i class="fas fa-arrow-right"></i></a>
             </div>
-        </section>
+
+            <div class="hero-footer">
+                <div class="powered-by">
+                    Powered by <strong>QLAUDIO</strong> technology
+                </div>
+                <a href="#how-it-works" class="scroll-down-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+            </section>
 
         <section id="how-it-works" class="container section">
             <h2 class="section-title">간단한 3단계, 나만의 곡 완성!</h2>
@@ -72,33 +81,57 @@
 
         <section id="creation-process" class="section">
             <div class="container">
-                <h2 class="section-title">차원이 다른 퀄리티: QLAUDIO 제작 과정</h2>
+                <h2 class="section-title">차원이 다른 퀄리티: MUSIC AI 제작 과정</h2>
                 <p class="section-subtitle">단순한 AI 생성을 넘어, 데이터 정제부터 전문가의 손길까지. 모든 단계에 담긴 장인정신을 확인하세요.</p>
                 
                 <div class="process-steps-wrapper">
                     <div class="process-step-alt">
                         <div class="process-image">
-                            <video autoplay loop muted playsinline poster="video/2.mp4">
-                                <source src="video/2.mp4" type="video/mp4">
+                            <video autoplay loop muted playsinline poster="video/1.mp4">
+                                <source src="video/1.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <div class="process-text">
-                            <div class="step-number">01</div>
-                            <h3>학습 데이터 정제<br><span>Data Pre-processing</span></h3>
-                            <p>완벽한 결과는 무결점 데이터에서 시작됩니다. AI 학습 전, 음원의 순도를 극한까지 끌어올립니다.</p>
-                            <ul class="keywords">
-                                <li><i class="fas fa-check"></i> <strong>Tuning & Pitch Correction:</strong> 보컬 튠 & 음정 보정</li>
-                                <li><i class="fas fa-check"></i> <strong>Denoise & Dereverb:</strong> 미세 노이즈 및 공간 울림 제거</li>
-                                <li><i class="fas fa-check"></i> <strong>Normalization:</strong> 오디오 레벨 및 음압 평준화</li>
-                                <li><i class="fas fa-check"></i> <strong>Source Separation:</strong> 악기, 보컬 음원 분리</li>
-                            </ul>
+                    <div class="process-text">
+                        <div class="step-number">01</div>
+                        <h3>학습 데이터 정제<br><span>Data Pre-processing</span></h3>
+                        <p>완벽한 결과는 무결점 데이터에서 시작됩니다. AI 학습 전, 음원의 순도를 극한까지 끌어올립니다.</p>
+                        
+                        <ul class="keywords">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div class="keyword-item">
+                                    <strong>Tuning & Pitch Correction</strong>
+                                    <span class="keyword-desc">보컬 튠 & 음정 보정</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div class="keyword-item">
+                                    <strong>Denoise & Dereverb</strong>
+                                    <span class="keyword-desc">미세 노이즈 및 공간 울림 제거</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div class="keyword-item">
+                                    <strong>Normalization</strong>
+                                    <span class="keyword-desc">오디오 레벨 및 음압 평준화</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <div class="keyword-item">
+                                    <strong>Source Separation</strong>
+                                    <span class="keyword-desc">악기, 보컬 음원 분리</span>
+                                </div>
+                            </li>
+                        </ul>
                         </div>
                     </div>
-        
                     <div class="process-step-alt reverse">
                         <div class="process-image">
-                            <video autoplay loop muted playsinline poster="video/3.mp4">
-                                <source src="video/3.mp4" type="video/mp4">
+                            <video autoplay loop muted playsinline poster="video/2.mp4">
+                                <source src="video/2.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="process-text">
@@ -106,44 +139,119 @@
                             <h3>AI 모델 학습<br><span>AI Model Training</span></h3>
                             <p>최첨단 SOTA 모델과 고성능 GPU가 만나 목소리의 영혼까지 학습합니다.</p>
                             <ul class="keywords">
-                                <li><i class="fas fa-check"></i> <strong>High-Performance GPU:</strong> 최고 사양 인프라 활용</li>
-                                <li><i class="fas fa-check"></i> <strong>State-Of-The-Art Model:</strong> 최신 AI 아키텍처 적용</li>
-                                <li><i class="fas fa-check"></i> <strong>Deep Learning:</strong> 500회 이상의 심층 학습 과정</li>
-                                <li><i class="fas fa-check"></i> <strong>Feature Extraction:</strong> 목소리 고유 특징 완벽 추출</li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>High-Performance GPU</strong>
+                                        <span class="keyword-desc">최고 사양 인프라 활용</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>State-Of-The-Art Model</strong>
+                                        <span class="keyword-desc">최신 AI 아키텍처 적용</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Deep Learning</strong>
+                                        <span class="keyword-desc">500회 이상의 심층 학습 과정</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Feature Extraction</strong>
+                                        <span class="keyword-desc">목소리 고유 특징 완벽 추출</span>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    
                     <div class="process-step-alt">
-                         <div class="process-image">
-                            <img src="https://images.unsplash.com/photo-1619983081563-436f63e02242?q=80&w=1740&auto=format&fit=crop" alt="AI 추론 및 생성">
+                        <div class="process-image">
+                            <video autoplay loop muted playsinline poster="video/3.mp4">
+                                <source src="video/3.mp4" type="video/mp4">
+                            </video>
                         </div>
                         <div class="process-text">
                             <div class="step-number">03</div>
                             <h3>AI 추론 및 생성<br><span>AI Inference</span></h3>
                             <p>학습된 모델이 당신의 목소리로 세상에 없던 멜로디와 감성을 빚어냅니다.</p>
                             <ul class="keywords">
-                                <li><i class="fas fa-check"></i> <strong>Vocal Synthesis:</strong> 고유 음색의 보컬 생성</li>
-                                <li><i class="fas fa-check"></i> <strong>Melody Generation:</strong> 독창적인 멜로디 라인 구축</li>
-                                <li><i class="fas fa-check"></i> <strong>Arrangement:</strong> 보컬에 최적화된 악기 구성</li>
-                                <li><i class="fas fa-check"></i> <strong>Expressive Control:</strong> 미세한 감정 표현 구현</li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Vocal Synthesis</strong>
+                                        <span class="keyword-desc">고유 음색의 보컬 생성</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Melody Generation</strong>
+                                        <span class="keyword-desc">독창적인 멜로디 라인 구축</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Arrangement</strong>
+                                        <span class="keyword-desc">보컬에 최적화된 악기 구성</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Expressive Control</strong>
+                                        <span class="keyword-desc">미세한 감정 표현 구현</span>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
         
                     <div class="process-step-alt reverse">
                         <div class="process-image">
-                            <img src="https://images.unsplash.com/photo-1600088863953-600a94363236?q=80&w=1740&auto=format&fit=crop" alt="전문가 후반 작업">
+                            <video autoplay loop muted playsinline poster="video/4.mp4">
+                                <source src="video/4.mp4" type="video/mp4">
+                            </video>
                         </div>
                         <div class="process-text">
                             <div class="step-number">04</div>
                             <h3>전문가 후반 작업<br><span>Mix & Mastering</span></h3>
                             <p>AI의 창의력에 인간 전문가의 섬세함이 더해져 비로소 하나의 '작품'이 완성됩니다.</p>
                             <ul class="keywords">
-                                <li><i class="fas fa-check"></i> <strong>Professional Mixing:</strong> 실용음악과 교수진 참여</li>
-                                <li><i class="fas fa-check"></i> <strong>Sound Mastering:</strong> 현직 프로 작곡가 감수</li>
-                                <li><i class="fas fa-check"></i> <strong>Quality Assurance:</strong> 상업 음반 수준의 최종 퀄리티</li>
-                                <li><i class="fas fa-check"></i> <strong>Final Polish:</strong> 입체감 및 음압 확보</li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Professional Mixing</strong>
+                                        <span class="keyword-desc">실용음악과 교수진 참여</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Sound Mastering</strong>
+                                        <span class="keyword-desc">현직 프로 작곡가 감수</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Quality Assurance</strong>
+                                        <span class="keyword-desc">상업 음반 수준의 최종 퀄리티</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <div class="keyword-item">
+                                        <strong>Final Polish</strong>
+                                        <span class="keyword-desc">입체감 및 음압 확보</span>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -243,7 +351,7 @@
         </section>
 
         <section id="examples" class="container section">
-            <h2 class="section-title">QLAUDIO AI 제작 예시 (샘플 듣기)</h2>
+            <h2 class="section-title">MUSIC AI 제작 예시 (샘플 듣기)</h2>
             <p class="section-subtitle">다양한 상황에 맞는 예시 곡들을 직접 들어보세요.</p>
             <div class="examples-grid">
 
@@ -314,19 +422,19 @@
                 </div>
 
             </div>
-             <p class="examples-note">* 위 샘플 곡들은 QLAUDIO AI 기술로 제작된 다양한 스타일의 예시입니다.</p>
+             <p class="examples-note">* 위 샘플 곡들은 MUSIC AI 기술로 제작된 다양한 스타일의 예시입니다.</p>
         </section>
 
         <section id="testimonials" class="section testimonials-section">
             <div class="container">
-                <h2 class="section-title">QLAUDIO AI 고객 후기</h2>
+                <h2 class="section-title">MUSIC AI 고객 후기</h2>
                  <div class="testimonial-slider"> 
                      <div class="testimonial">
                         <p>"프로포즈 때 여자친구가 울었어요. 제 목소리로 만든 노래라 더 감동이었나 봐요. 정말 감사합니다!"</p>
                         <div class="author">- 김민준 님 (AI 자작곡 만들기 이용)</div>
                     </div>
                      <div class="testimonial">
-                        <p>"음악은 하고 싶은데 노래 실력이 부족해서 고민이었어요. QLAUDIO AI 덕분에 제 목소리로 음원을 만들 수 있었어요!"</p>
+                        <p>"음악은 하고 싶은데 노래 실력이 부족해서 고민이었어요. MUSIC AI 덕분에 제 목소리로 음원을 만들 수 있었어요!"</p>
                         <div class="author">- 박지현 님 (프로 퀄리티 AI 자작곡 이용)</div>
                     </div>
                      <div class="testimonial">
@@ -364,7 +472,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <a href="#" class="logo">QLAUDIO AI <i class="fas fa-microphone-alt"></i></a>
+                    <a href="#" class="logo">MUSIC AI <i class="fas fa-microphone-alt"></i></a>
                     <p>AI 기술로 만드는 당신만의 특별한 노래</p>
     
                     <div class="footer-links">
