@@ -1,28 +1,23 @@
-/* style.css */
-
 /* --- Global Styles & Variables --- */
 :root {
-    --primary-color: #6a11cb; /* Deep Purple */
-    --secondary-color: #2575fc; /* Bright Blue */
-    --accent-color: #ff6b6b; /* Coral Red for accents/CTAs */
-    --text-color: #333;
-    --light-text-color: #fff;
-    --bg-color: #ffffff;
-    --light-bg-color: #f8f9fa;
-    --border-color: #e0e0e0;
-    --gradient-bg: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    --popular-color: #ffc107; /* Yellow for popular badge */
-    --pro-color: #0dcaf0; /* Cyan for pro badge */
+    --bg-color: #1a1a1a; /* 어두운 배경색 */
+    --surface-color: #2c2c2c; /* 카드 등 표면 색상 */
+    --primary-text-color: #f0f0f0; /* 기본 텍스트 색상 */
+    --secondary-text-color: #a0a0a0; /* 보조 텍스트 색상 */
+    --accent-color: #c5a47e; /* 포인트 골드 색상 */
+    --accent-color-rgb: 197, 164, 126;
+    --border-color: #444444; /* 테두리 색상 */
+    --pro-color: #c5a47e; /* 프로 배지 색상 */
 
     --font-primary: 'Noto Sans KR', sans-serif;
-    --font-secondary: 'Poppins', sans-serif; /* For headings/logo */
+    --font-secondary: 'Poppins', sans-serif;
 
     --container-width: 1140px;
-    --border-radius: 8px;
-    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
     --transition-speed: 0.3s ease;
 }
 
+/* --- Base Styles --- */
 * {
     margin: 0;
     padding: 0;
@@ -35,10 +30,11 @@ html {
 
 body {
     font-family: var(--font-primary);
-    color: var(--text-color);
     background-color: var(--bg-color);
-    line-height: 1.7;
+    color: var(--primary-text-color);
+    line-height: 1.8;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -50,27 +46,27 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-secondary);
     font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    color: var(--primary-text-color);
+    line-height: 1.3;
 }
 
-h1 { font-size: 3rem; line-height: 1.2; }
-h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2rem; }
-h3 { font-size: 1.5rem; color: var(--secondary-color); }
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; }
+h3 { font-size: 1.6rem; margin-bottom: 1rem; }
 
 p {
     margin-bottom: 1rem;
-    color: #555;
+    color: var(--secondary-text-color);
 }
 
 a {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     text-decoration: none;
     transition: color var(--transition-speed);
 }
 
 a:hover {
-    color: var(--primary-color);
+    color: var(--primary-text-color);
 }
 
 img {
@@ -80,33 +76,33 @@ img {
 }
 
 .section {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .section-title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .section-subtitle {
     text-align: center;
     font-size: 1.1rem;
-    color: #777;
-    margin-bottom: 4rem;
-    max-width: 600px;
+    color: var(--secondary-text-color);
+    margin-bottom: 4.5rem;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
 }
 
 /* --- Header & Navigation --- */
 header {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(26, 26, 26, 0.8); /* 반투명 배경 */
+    backdrop-filter: blur(10px); /* 블러 효과 */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    transition: background-color var(--transition-speed);
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav.container {
@@ -120,82 +116,105 @@ nav.container {
     font-family: var(--font-secondary);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--primary-text-color);
     display: flex;
     align-items: center;
 }
 
 .logo i {
     margin-left: 8px;
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 40px;
 }
 
 nav ul li a {
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--secondary-text-color);
     position: relative;
     padding: 5px 0;
+    transition: color var(--transition-speed);
+}
+
+nav ul li a:hover {
+    color: var(--primary-text-color);
 }
 
 nav ul li a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: var(--gradient-bg);
+    background-color: var(--accent-color);
     transition: width var(--transition-speed);
 }
 
 nav ul li a:hover::after,
-nav ul li a.active::after { /* JS can add 'active' class on scroll */
+nav ul li a.active::after {
     width: 100%;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 12px 35px;
     border-radius: 50px;
     font-weight: 600;
     text-align: center;
     transition: all var(--transition-speed);
     cursor: pointer;
     font-family: var(--font-secondary);
-    border: none;
+    border: 2px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.cta-button:hover, .primary-cta {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.2);
 }
 
 .nav-cta {
-    background: var(--gradient-bg);
-    color: var(--light-text-color);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 25px;
+    border-width: 1px;
 }
 
 .nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    color: var(--light-text-color); /* Keep text color on hover */
+    color: #000;
 }
 
 /* --- Hero Section --- */
 #hero {
     position: relative;
     height: 100vh;
-    min-height: 600px;
+    min-height: 700px;
     display: flex;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    color: var(--light-text-color);
-    background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover; /* Replace with a better high-res image */
+    /* background: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3') no-repeat center center/cover; */
     z-index: 1;
 }
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2; /* hero-overlay(-1)보다 뒤에 위치 */
+    object-fit: cover; /* background-size: cover와 동일한 역할 */
+}
+
 
 .hero-overlay {
     position: absolute;
@@ -203,7 +222,7 @@ nav ul li a.active::after { /* JS can add 'active' class on scroll */
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); /* Dark overlay */
+    background: linear-gradient(to top, rgba(26, 26, 26, 1) 0%, rgba(26, 26, 26, 0.5) 100%);
     z-index: -1;
 }
 
@@ -212,285 +231,267 @@ nav ul li a.active::after { /* JS can add 'active' class on scroll */
 }
 
 #hero h1 {
-    color: var(--light-text-color);
-    font-size: 3.5rem; /* Slightly larger hero heading */
-    margin-bottom: 1.5rem;
+    color: var(--primary-text-color);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 #hero .subtitle {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2.5rem;
+    color: var(--secondary-text-color);
+    margin: 2rem 0 3rem 0;
 }
 
 .hero-cta {
-    background: var(--gradient-bg);
-    color: var(--light-text-color);
-    padding: 15px 40px;
+    padding: 15px 45px;
     font-size: 1.1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .hero-cta i {
     margin-left: 10px;
+    transition: transform var(--transition-speed);
 }
 
-.hero-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    color: var(--light-text-color);
+.hero-cta:hover i {
+    transform: translateX(5px);
 }
 
 /* --- How It Works Section --- */
 .steps-container {
     display: flex;
     justify-content: space-around;
-    gap: 30px;
-    margin-top: 4rem;
+    gap: 40px;
+    margin-top: 5rem;
 }
 
 .step {
     text-align: center;
-    max-width: 300px;
+    max-width: 320px;
 }
 
-.step-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    color: var(--secondary-color);
-    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); /* Light gradient bg for icon */
-    width: 100px;
-    height: 100px;
+.step-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--border-color);
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    transition: all var(--transition-speed);
 }
 
-.step-icon i {
-     background: var(--gradient-bg);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.step-icon-wrapper i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    transition: transform var(--transition-speed);
 }
 
+.step:hover .step-icon-wrapper {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(var(--accent-color-rgb), 0.2);
+}
+
+.step:hover .step-icon-wrapper i {
+    transform: scale(1.1);
+}
 
 .step h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
+    color: var(--primary-text-color);
+    margin-bottom: 1rem;
 }
 
 /* --- Pricing Section --- */
 .pricing-section {
-    background-color: var(--light-bg-color);
+    background-color: #111; /* 살짝 다른 배경색 */
 }
 
 .pricing-table {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 4rem;
 }
 
 .pricing-plan {
     background-color: var(--bg-color);
-    border-radius: var(--border-radius);
-    padding: 30px;
-    text-align: center;
-    box-shadow: var(--box-shadow);
     border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    text-align: center;
     position: relative;
     overflow: hidden;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    transition: transform var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .pricing-plan:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .pricing-plan h3 {
-    margin-bottom: 1rem;
     font-size: 1.4rem;
-    color: var(--primary-color);
+    color: var(--primary-text-color);
+    margin-bottom: 1.5rem;
 }
 
 .price {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    color: var(--secondary-color);
-    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
 }
 
 .price .currency {
     font-size: 1rem;
     font-weight: 400;
     margin-left: 5px;
+    color: var(--secondary-text-color);
 }
 
 .pricing-plan ul {
     list-style: none;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: left;
-    padding-left: 10px; /* Indent list */
 }
 
 .pricing-plan ul li {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    color: #555;
+    color: var(--secondary-text-color);
     font-size: 0.95rem;
 }
 
 .pricing-plan ul li i {
-    color: #28a745; /* Green checkmark */
-    margin-right: 10px;
-    width: 20px; /* Ensure consistent alignment */
+    color: var(--accent-color);
+    margin-right: 12px;
+    width: 20px;
     text-align: center;
-}
-
-.pricing-plan ul li i.fa-star {
-     color: var(--popular-color); /* Star for pro features */
 }
 
 .pricing-plan .recommended-for {
     font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 1.5rem;
-    font-style: italic;
+    color: var(--secondary-text-color);
+    margin-bottom: 2rem;
+    min-height: 40px; /* 레이아웃 정렬을 위해 */
 }
 
 .popular-badge, .pro-badge {
     position: absolute;
-    top: 15px;
-    right: -30px; /* Start off-screen */
-    background-color: var(--popular-color);
-    color: var(--text-color);
-    padding: 5px 40px; /* Wider padding */
+    top: -1px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: #000;
+    padding: 25px 10px 5px;
     font-size: 0.8rem;
     font-weight: 700;
-    transform: rotate(45deg);
-    transform-origin: top left;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
 }
 
 .pro-badge {
     background-color: var(--pro-color);
 }
 
-.primary-cta {
-    background: var(--gradient-bg);
-    color: var(--light-text-color);
-}
-.primary-cta:hover { color: var(--light-text-color); transform: scale(1.05); }
-
-.secondary-cta {
-    background-color: transparent;
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
-}
-.secondary-cta:hover {
-    background-color: var(--secondary-color);
-    color: var(--light-text-color);
-}
-
 .pricing-note {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
     font-size: 0.9rem;
-    color: #888;
+    color: var(--secondary-text-color);
 }
 
 /* --- Examples Section --- */
 .examples-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 4rem;
 }
 
 .example-item {
-    background-color: var(--light-bg-color);
+    background-color: var(--surface-color);
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed);
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .example-item:hover {
-     transform: translateY(-5px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.example-image-wrapper {
+    height: 220px;
+    overflow: hidden;
 }
 
 .example-item img {
     width: 100%;
-    height: 200px; /* Fixed height for consistency */
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.example-item:hover img {
+    transform: scale(1.05);
+}
+
+.example-content {
+    padding: 25px;
 }
 
 .example-item h3 {
     font-size: 1.3rem;
-    margin: 1.5rem 1.5rem 0.5rem 1.5rem;
-    color: var(--primary-color);
+    color: var(--primary-text-color);
     display: flex;
     align-items: center;
 }
 
 .example-item h3 i {
     margin-right: 10px;
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
-
 .example-item p {
-    padding: 0 1.5rem 1rem 1.5rem;
     font-size: 0.95rem;
-    color: #666;
+    padding-bottom: 1rem;
 }
 
 .audio-player {
-    width: calc(100% - 3rem);
-    margin: 0 1.5rem 1.5rem 1.5rem;
-    height: 40px;
+    width: 100%;
+    height: 45px;
+    filter: invert(1) hue-rotate(180deg) saturate(0.5) brightness(1.2);
 }
 
-/* Disabled placeholder style */
-audio[disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
+.examples-note {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
 }
-
 
 /* --- Testimonials Section --- */
 .testimonials-section {
-    background: var(--gradient-bg);
-    color: var(--light-text-color);
+    background-color: var(--bg-color);
 }
 
-.testimonials-section .section-title {
-    color: var(--light-text-color);
-}
-
-.testimonial-slider { /* Simple layout, enhance with JS slider library if needed */
+.testimonial-slider {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 4rem;
 }
 
 .testimonial {
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    background-color: var(--surface-color);
     padding: 30px;
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 4px solid var(--accent-color);
 }
 
 .testimonial p {
     font-style: italic;
     margin-bottom: 1.5rem;
     position: relative;
-    padding-left: 25px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-text-color);
 }
 
 .testimonial p::before {
@@ -498,50 +499,93 @@ audio[disabled] {
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.5);
+    left: -15px;
+    top: -10px;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    opacity: 0.3;
 }
 
 .testimonial .author {
     font-weight: 600;
     text-align: right;
-    color: var(--light-text-color);
+    color: var(--secondary-text-color);
 }
 
 /* --- Final CTA Section --- */
 .cta-final-section {
-    background-color: var(--light-bg-color);
+    background-color: #111;
     text-align: center;
 }
 
 .cta-final-section h2 {
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
 }
+
 .cta-final-section p {
+    margin: 1.5rem 0 2.5rem;
+}
+
+/* --- Guidance Notes --- */
+.guidance-notes {
+    margin-top: 4rem;
+    padding: 40px;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guidance-notes h3 {
+    font-size: 1.4rem;
     margin-bottom: 2rem;
-    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.cta-final-section .cta-button {
-    margin: 0 10px;
-    min-width: 200px; /* Ensure buttons have good width */
+.guidance-notes h3 i {
+    margin-right: 12px;
+    color: var(--accent-color);
 }
 
-.cta-final-section .cta-button i {
-    margin-right: 8px;
+.guidance-notes ul {
+    list-style: none;
 }
 
+.guidance-notes ul li {
+    margin-bottom: 1rem;
+    padding-left: 30px;
+    position: relative;
+    color: var(--secondary-text-color);
+}
+
+.guidance-notes ul li::before {
+    content: '\f058'; /* Font Awesome check-circle solid */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+.guidance-notes ul li strong {
+     color: var(--primary-text-color);
+     font-weight: 600;
+}
 
 /* --- Footer --- */
 footer {
-    background-color: #2c3e50; /* Dark Blue/Gray */
-    color: rgba(255, 255, 255, 0.7);
-    padding: 60px 0 30px 0;
+    background-color: #111;
+    color: var(--secondary-text-color);
+    padding: 80px 0 30px 0;
     font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -549,181 +593,102 @@ footer {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
+
+.footer-left { flex-basis: 30%; }
+.footer-right { flex-basis: 65%; display: flex; justify-content: space-between; gap: 30px;}
 
 .footer-left .logo {
-    color: var(--light-text-color);
-    margin-bottom: 1rem;
+    color: var(--primary-text-color);
+    margin-bottom: 1.5rem;
 }
 
-.footer-left .logo i {
-     color: var(--pro-color); /* Use a lighter accent for footer */
-}
-
-.footer-left p {
-     color: rgba(255, 255, 255, 0.7);
-     margin-bottom: 1rem;
-}
+.footer-links { margin: 1.5rem 0; }
+.footer-links a { color: var(--secondary-text-color); margin: 0 10px; }
+.footer-links a:first-child { margin-left: 0; }
+.footer-links a:hover { color: var(--primary-text-color); }
 
 .social-links a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.3rem;
-    margin-right: 15px;
-    transition: color var(--transition-speed);
+    color: var(--secondary-text-color);
+    font-size: 1.5rem;
+    margin-right: 20px;
 }
 
-.social-links a:hover {
-    color: var(--light-text-color);
+.footer-section h4 {
+    color: var(--primary-text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .footer-right p {
-    margin-bottom: 0.5rem;
-     color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.7rem;
+    color: var(--secondary-text-color);
 }
 
 .footer-right a {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: underline;
+    color: var(--secondary-text-color);
+    text-decoration: none;
 }
 .footer-right a:hover {
-    color: var(--light-text-color);
+    color: var(--primary-text-color);
+    text-decoration: underline;
 }
 
 .copyright {
     text-align: center;
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.5);
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+    color: #777;
 }
 
 /* --- Responsive Design --- */
+@media (max-width: 1200px) {
+    .pricing-table, .examples-grid, .testimonial-slider {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
 
-/* Tablets and smaller desktops */
 @media (max-width: 992px) {
     h1 { font-size: 2.8rem; }
-    #hero h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    .section { padding: 80px 0; }
+
+    nav ul { gap: 25px; }
+    .nav-cta { display: none; }
+
+    .footer-content, .footer-right { flex-direction: column; }
+    .footer-left, .footer-right { flex-basis: 100%; text-align: center; }
+    .social-links { justify-content: center; }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    #hero h1 { font-size: 2.8rem; }
     h2 { font-size: 2rem; }
 
-    nav ul { gap: 20px; }
-    .nav-cta { display: none; } /* Hide nav cta on smaller screens, rely on hero/main cta */
+    nav ul { display: none; } /* 모바일 메뉴는 JS로 구현 필요 */
 
-    .steps-container { flex-direction: column; align-items: center; }
-    .step { max-width: 400px; margin-bottom: 30px; }
+    #hero { min-height: 600px; }
 
-    .pricing-table { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-
-    .examples-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-
-    .footer-content { flex-direction: column; text-align: center; }
-    .footer-right { margin-top: 20px; }
-    .social-links { margin-top: 1rem; justify-content: center; display:flex; gap: 20px;}
-}
-
-/* Mobile devices */
-@media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-    #hero h1 { font-size: 2.5rem; }
-    h2 { font-size: 1.8rem; }
-
-    nav.container { /* Adjust nav for mobile - consider hamburger menu implementation with JS */
-        padding: 0 15px;
+    .steps-container { flex-direction: column; align-items: center; gap: 50px; }
+    
+    .pricing-table, .examples-grid, .testimonial-slider {
+        grid-template-columns: 1fr;
     }
-    nav ul { display: none; } /* Hide desktop nav, implement mobile menu */
-
-    .section { padding: 60px 0; }
-
-    #hero { height: 80vh; min-height: 500px; }
-    #hero .subtitle { font-size: 1rem; }
-
-    .pricing-table { grid-template-columns: 1fr; } /* Stack pricing plans */
-    .pricing-plan { margin-bottom: 30px; }
-
-    .examples-grid { grid-template-columns: 1fr; } /* Stack example items */
-
-    .cta-final-section .cta-button { display: block; margin: 15px auto; width: 80%; }
 }
 
-/* --- Animations (Optional with JS) --- */
+/* --- Scroll Animation --- */
 .section {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .section.visible {
     opacity: 1;
     transform: translateY(0);
 }
-
-.examples-note {
-    text-align: center;
-    margin-top: 3rem; /* Adjust spacing as needed */
-    font-size: 0.9rem;
-    color: #888;
-}
-
-/* Add to style.css */
-
-.guidance-notes {
-    margin-top: 3.5rem; /* Adjust spacing from button */
-    padding: 30px;
-    background-color: #fff; /* White background to stand out on light gray */
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    text-align: left;
-    max-width: 800px; /* Limit width for readability */
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.07); /* Slightly enhanced shadow */
-}
-
-.guidance-notes h3 {
-    font-size: 1.4rem; /* Slightly larger heading */
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center heading */
-    text-align: center;
-    font-weight: 600;
-}
-
-.guidance-notes h3 i {
-    margin-right: 10px;
-    color: var(--secondary-color);
-    font-size: 1.3rem; /* Icon size match */
-}
-
-.guidance-notes ul {
-    list-style: none; /* Remove default bullets */
-    padding-left: 0;
-}
-
-.guidance-notes ul li {
-    margin-bottom: 1rem;
-    padding-left: 30px; /* Indent text */
-    position: relative;
-    font-size: 0.95rem;
-    color: #444; /* Slightly darker text for guidance */
-    line-height: 1.7; /* Increase line height slightly */
-}
-
-/* Style the bullet points using Font Awesome icons */
-.guidance-notes ul li::before {
-    content: '\f058'; /* Font Awesome check-circle solid */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900; /* Use solid style */
-    position: absolute;
-    left: 0;
-    top: 5px; /* Adjust vertical alignment */
-    color: var(--secondary-color); /* Use theme color for icons */
-    font-size: 1rem; /* Icon size */
-}
-
-/* Highlight important words */
- .guidance-notes ul li strong {
-     color: var(--accent-color); /* Highlight keywords with accent color */
-     font-weight: 600;
- }

@@ -35,6 +35,12 @@
     <main>
 
         <section id="hero">
+            <video poster="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                autoplay loop muted playsinline class="hero-video">
+                <source src="Edited.mp4" type="video/mp4">
+                브라우저가 비디오 태그를 지원하지 않습니다.
+            </video>
+
             <div class="hero-overlay"></div>
             <div class="container hero-content">
                 <h1>당신의 목소리로<br>세상 단 하나뿐인 노래를 만드세요</h1>
@@ -47,17 +53,17 @@
             <h2 class="section-title">간단한 3단계, 나만의 곡 완성!</h2>
             <div class="steps-container">
                 <div class="step">
-                    <div class="step-icon"><i class="fas fa-list-check"></i></div>
+                    <div class="step-icon-wrapper"><i class="fas fa-list-check"></i></div>
                     <h3>1. 서비스 & 스타일 선택</h3>
                     <p>원하시는 서비스 플랜(MR, 커버, 자작곡 등)과 곡의 장르, 분위기 등 스타일을 선택하고 알려주세요.</p>
                 </div>
                 <div class="step">
-                    <div class="step-icon"><i class="fas fa-brain"></i></div> 
+                    <div class="step-icon-wrapper"><i class="fas fa-brain"></i></div>
                     <h3>2. AI 학습 & 음악 제작</h3>
                     <p>(목소리 포함 시) AI가 고객님의 목소리를 학습하고, 요청하신 스타일에 맞춰 세상에 단 하나뿐인 음악을 제작합니다.</p>
                 </div>
                 <div class="step">
-                    <div class="step-icon"><i class="fas fa-music"></i></div>
+                    <div class="step-icon-wrapper"><i class="fas fa-music"></i></div>
                     <h3>3. 나만의 곡 완성 & 전달</h3>
                     <p>당신의 목소리로 부른 (또는 맞춤 제작된) 세상 단 하나뿐인 곡이 완성! 고음질 음원 파일로 안전하게 전달해 드립니다.</p>
                 </div>
@@ -79,7 +85,7 @@
                             <li><i class="fas fa-check-circle"></i> 보컬 가요곡 MR도 제작 가능</li>
                         </ul>
                         <p class="recommended-for">영상 배경음악, 노래 연습</p>
-                        <a href="#contact" class="cta-button primary-cta">선택하기</a>
+                        <a href="#contact" class="cta-button">문의하기</a>
                     </div>
 
                     <div class="pricing-plan">
@@ -92,7 +98,7 @@
                             <li><i class="fas fa-check-circle"></i> 본인 목소리 학습은 포함 X</li>
                         </ul>
                         <p class="recommended-for">개인화 된 음악 제작</p>
-                        <a href="#contact" class="cta-button primary-cta">선택하기</a>
+                        <a href="#contact" class="cta-button">문의하기</a>
                     </div>
 
                     <div class="pricing-plan">
@@ -105,7 +111,7 @@
                             <li><i class="fas fa-check-circle"></i> 고음질 음원 파일 제공</li>
                         </ul>
                         <p class="recommended-for">커버곡 제작, 특별한 날 노래 선물</p>
-                        <a href="#contact" class="cta-button primary-cta">선택하기</a>
+                        <a href="#contact" class="cta-button">문의하기</a>
                     </div>
 
                     <div class="pricing-plan popular">
@@ -119,10 +125,10 @@
                             <li><i class="fas fa-check-circle"></i> 기본 믹싱 & 고음질 음원</li>
                         </ul>
                          <p class="recommended-for">⭐ 모든 기념일 선물, 자작곡 완성</p>
-                        <a href="#contact" class="cta-button primary-cta">선택하기</a>
+                        <a href="#contact" class="cta-button primary-cta">문의하기</a>
                     </div>
                     
-                    <div class="pricing-plan duet">
+                    <div class="pricing-plan">
                         <h3>AI 듀엣 자작곡 만들기</h3>
                         <div class="price">280,000<span class="currency">원</span></div>
                         <ul>
@@ -133,7 +139,7 @@
                             <li><i class="fas fa-check-circle"></i> 기본 믹싱 & 고음질 음원</li>
                         </ul>
                          <p class="recommended-for">💖 커플 기념일/프로포즈, 친구/가족 듀엣곡</p>
-                         <a href="#contact" class="cta-button primary-cta">선택하기</a>
+                         <a href="#contact" class="cta-button">문의하기</a>
                     </div>
 
                     <div class="pricing-plan pro">
@@ -148,7 +154,7 @@
                             <li><i class="fas fa-star"></i> 완전한 나만의 상업 음원 발매</li>
                         </ul>
                          <p class="recommended-for">🚀 개인 음원 정식 발매 희망자</p>
-                         <a href="#contact" class="cta-button primary-cta">선택하기</a>
+                         <a href="#contact" class="cta-button">문의하기</a>
                     </div>
                 </div>
                  <p class="pricing-note">* '프로 퀄리티' 플랜 외 모든 플랜은 개인적(비상업적) 용도 기준입니다. 상업적 이용은 별도 문의 바랍니다.</p>
@@ -161,45 +167,69 @@
             <div class="examples-grid">
 
                 <div class="example-item">
-                    <img src="https://media.istockphoto.com/id/1337143609/photo/hands-holding-diamond-ring-in-jewelry-box.jpg?s=612x612&w=0&k=20&c=hls5YLefqe7-MP4ELaRaMnuN9DM2vArJN4ECNIdewNs=" alt="프로포즈 음악 예시">
-                    <h3><i class="fas fa-ring"></i> 감동적인 프로포즈</h3>
-                    <p>세상 어디에도 없는, 오직 그녀만을 위한 노래로 평생 잊지 못할 순간을 선물하세요.</p>
-                    <audio controls class="audio-player" src="audio/propose.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    <div class="example-image-wrapper">
+                       <img src="https://media.istockphoto.com/id/1337143609/photo/hands-holding-diamond-ring-in-jewelry-box.jpg?s=612x612&w=0&k=20&c=hls5YLefqe7-MP4ELaRaMnuN9DM2vArJN4ECNIdewNs=" alt="프로포즈 음악 예시">
+                    </div>
+                    <div class="example-content">
+                        <h3><i class="fas fa-ring"></i> 감동적인 프로포즈</h3>
+                        <p>세상 어디에도 없는, 오직 그녀만을 위한 노래로 평생 잊지 못할 순간을 선물하세요.</p>
+                        <audio controls class="audio-player" src="audio/propose.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    </div>
+                </div>
+                
+                 <div class="example-item">
+                    <div class="example-image-wrapper">
+                        <img src="https://media.istockphoto.com/id/1431551851/ko/%EB%B2%A1%ED%84%B0/%EC%83%9D%EC%9D%BC-%EC%BC%80%EC%9D%B4%ED%81%AC-%EB%B2%A1%ED%84%B0-%EB%B0%B0%EA%B2%BD-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%A7%9B%EC%9E%88%EB%8A%94-%EC%BC%80%EC%9D%B4%ED%81%AC-%EC%9A%94%EC%86%8C-%EC%9E%A5%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%83%9D%EC%9D%BC-%EC%B6%95%ED%95%98-%EC%9D%B8%EC%82%AC%EB%A7%90-%ED%85%8D%EC%8A%A4%ED%8A%B8.jpg?s=612x612&w=0&k=20&c=wMuI-oPYr53hpjAZh0TDyZwOT3O2QmEIhFHBqCmYv0o=" alt="기념일 선물 예시">
+                    </div>
+                    <div class="example-content">
+                        <h3><i class="fas fa-gift"></i> 특별한 기념일 선물</h3>
+                        <p>결혼기념일, 생일 등. 당신의 진심 어린 목소리로 감사의 마음을 전하세요.</p>
+                         <audio controls class="audio-player" src="audio/anni.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    </div>
                 </div>
 
                 <div class="example-item">
-                    <img src="https://media.istockphoto.com/id/1431551851/ko/%EB%B2%A1%ED%84%B0/%EC%83%9D%EC%9D%BC-%EC%BC%80%EC%9D%B4%ED%81%AC-%EB%B2%A1%ED%84%B0-%EB%B0%B0%EA%B2%BD-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%A7%9B%EC%9E%88%EB%8A%94-%EC%BC%80%EC%9D%B4%ED%81%AC-%EC%9A%94%EC%86%8C-%EC%9E%A5%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%83%9D%EC%9D%BC-%EC%B6%95%ED%95%98-%EC%9D%B8%EC%82%AC%EB%A7%90-%ED%85%8D%EC%8A%A4%ED%8A%B8.jpg?s=612x612&w=0&k=20&c=wMuI-oPYr53hpjAZh0TDyZwOT3O2QmEIhFHBqCmYv0o=" alt="기념일 선물 예시">
-                    <h3><i class="fas fa-gift"></i> 특별한 기념일 선물</h3>
-                    <p>결혼기념일, 생일 등. 당신의 진심 어린 목소리로 감사의 마음을 전하세요.</p>
-                     <audio controls class="audio-player" src="audio/anni.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                     <div class="example-image-wrapper">
+                        <img src="https://media.istockphoto.com/id/1073246092/photo/singers.jpg?s=612x612&w=0&k=20&c=QJaZ8rC2VQO9KYsgSk1S-SxLER-VP2-QBZ6poIgJiFA=" alt="듀엣곡 예시">
+                    </div>
+                    <div class="example-content">
+                        <h3><i class="fas fa-user-friends"></i> 우리 둘만의 듀엣곡</h3>
+                        <p>연인, 친구, 가족과 함께 부르는 듀엣곡. 소중한 추억을 노래로 만들어 보세요.</p>
+                        <audio controls class="audio-player" src="audio/duet.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    </div>
+                </div>
+                
+                 <div class="example-item">
+                     <div class="example-image-wrapper">
+                        <img src="https://media.istockphoto.com/id/1437847425/photo/smile-mother-and-child-in-a-garden-for-love-peace-and-care-together-on-mothers-day-happy.jpg?s=612x612&w=0&k=20&c=AF_3JvLFFvFwPjhxb3E23fVqnGp7oFR-x4Zdzsk0qCo=" alt="감사 노래 예시">
+                    </div>
+                    <div class="example-content">
+                        <h3><i class="fas fa-heart"></i> 부모님께 드리는 감사</h3>
+                        <p>따뜻한 목소리로 부모님께 평소 전하지 못했던 감사와 사랑을 노래 편지로 전해보세요.</p>
+                        <audio controls class="audio-player" src="audio/parents.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    </div>
                 </div>
 
                 <div class="example-item">
-                    <img src="https://media.istockphoto.com/id/1073246092/photo/singers.jpg?s=612x612&w=0&k=20&c=QJaZ8rC2VQO9KYsgSk1S-SxLER-VP2-QBZ6poIgJiFA=" alt="듀엣곡 예시">
-                    <h3><i class="fas fa-user-friends"></i> 우리 둘만의 듀엣곡</h3>
-                    <p>연인, 친구, 가족과 함께 부르는 듀엣곡. 소중한 추억을 노래로 만들어 보세요.</p>
-                    <audio controls class="audio-player" src="audio/duet.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    <div class="example-image-wrapper">
+                        <img src="https://www.techm.kr/news/photo/202211/104009_123610_410.jpg" alt="개인 콘텐츠 활용 예시">
+                    </div>
+                    <div class="example-content">
+                        <h3><i class="fas fa-video"></i> 저작권 걱정 없는 배경음악 제작</h3>
+                        <p>당신만을 위한 특별한 BGM, 저작권 걱정 없는 배경음악을 제작해보세요.</p>
+                        <audio controls class="audio-player" src="audio/bgm.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    </div>
                 </div>
 
                 <div class="example-item">
-                    <img src="https://media.istockphoto.com/id/1437847425/photo/smile-mother-and-child-in-a-garden-for-love-peace-and-care-together-on-mothers-day-happy.jpg?s=612x612&w=0&k=20&c=AF_3JvLFFvFwPjhxb3E23fVqnGp7oFR-x4Zdzsk0qCo=" alt="감사 노래 예시">
-                    <h3><i class="fas fa-heart"></i> 부모님께 드리는 감사</h3>
-                    <p>따뜻한 목소리로 부모님께 평소 전하지 못했던 감사와 사랑을 노래 편지로 전해보세요.</p>
-                    <audio controls class="audio-player" src="audio/parents.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
-                </div>
-
-                <div class="example-item">
-                    <img src="https://www.techm.kr/news/photo/202211/104009_123610_410.jpg" alt="개인 콘텐츠 활용 예시">
-                    <h3><i class="fas fa-video"></i> 저작권 걱정 없는 배경음악 제작</h3>
-                    <p>당신만을 위한 특별한 BGM, 저작권 걱정 없는 배경음악을 제작해보세요.</p>
-                    <audio controls class="audio-player" src="audio/bgm.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
-                </div>
-
-                <div class="example-item">
-                    <img src="https://img.freepik.com/premium-psd/kpop-music-representation-mockup_23-2150360769.jpg" alt="나만의 음원 발매 예시">
-                    <h3><i class="fas fa-compact-disc"></i> 나만의 음원 발매</h3>
-                    <p>프로 퀄리티 제작 지원으로 당신의 음악적 꿈을 현실로! 아티스트의 첫걸음을 내딛으세요.</p>
-                    <audio controls class="audio-player" src="audio/pro.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    <div class="example-image-wrapper">
+                        <img src="https://img.freepik.com/premium-psd/kpop-music-representation-mockup_23-2150360769.jpg" alt="나만의 음원 발매 예시">
+                    </div>
+                    <div class="example-content">
+                        <h3><i class="fas fa-compact-disc"></i> 나만의 음원 발매</h3>
+                        <p>프로 퀄리티 제작 지원으로 당신의 음악적 꿈을 현실로! 아티스트의 첫걸음을 내딛으세요.</p>
+                        <audio controls class="audio-player" src="audio/pro.mp3">오디오 재생을 지원하지 않는 브라우저입니다.</audio>
+                    </div>
                 </div>
 
             </div>
@@ -209,7 +239,8 @@
         <section id="testimonials" class="section testimonials-section">
             <div class="container">
                 <h2 class="section-title">QLAUDIO AI 고객 후기</h2>
-                 <div class="testimonial-slider"> <div class="testimonial">
+                 <div class="testimonial-slider"> 
+                     <div class="testimonial">
                         <p>"프로포즈 때 여자친구가 울었어요. 제 목소리로 만든 노래라 더 감동이었나 봐요. 정말 감사합니다!"</p>
                         <div class="author">- 김민준 님 (AI 자작곡 만들기 이용)</div>
                     </div>
@@ -228,7 +259,7 @@
         <section id="contact" class="cta-final-section section">
             <div class="container">
                <h2>제작 문의 및 신청하기</h2>
-               <p>아래 버튼을 클릭하여 Google Form 문의 양식을 작성해주세요.<br>정확한 상담을 위해 모든 항목을 상세히 기재해주시면 감사하겠습니다.</p>
+               <p>아래 버튼을 클릭하여 문의 양식을 작성해주세요.<br>정확한 상담을 위해 모든 항목을 상세히 기재해주시면 감사하겠습니다.</p>
 
                <a id="google-form-inquiry-button" href="https://docs.google.com/forms/d/e/1FAIpQLSc7E0X9SGpbjWwjDpE24sVKv-Wfhq_xQvcZFayk59ENEbnZ9A/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="cta-button primary-cta">
                    <i class="fas fa-file-alt"></i> 제작 문의 양식 작성 (Google Form)
@@ -237,10 +268,10 @@
                <div class="guidance-notes">
                    <h3><i class="fas fa-info-circle"></i> 제작 관련 안내사항</h3>
                    <ul>
-                       <li>모든 '목소리 포함' 상품에는 기본 믹싱 및 마스터링 작업이 포함되어 있습니다. ('프로 퀄리티' 상품은 전문가급 작업으로 진행됩니다.)</li>
-                       <li>'내 목소리' 또는 '듀엣곡' 상품 선택 시, 목소리 학습(SVC)을 위해 고품질의 원본 목소리 녹음 파일이 필수입니다.</li>
-                       <li>제공해주시는 목소리 녹음 파일의 퀄리티(선명도, 잡음 유무 등)가 최종 음원의 품질에 큰 영향을 미칩니다.</li>
-                       <li>스마트폰 녹음도 가능하나, 가급적 잡음 없는 조용한 환경에서 마이크를 사용한 녹음을 권장합니다.</li>
+                       <li>모든 '목소리 포함' 상품에는 <strong>기본 믹싱 및 마스터링</strong> 작업이 포함되어 있습니다. ('프로 퀄리티' 상품은 전문가급 작업으로 진행됩니다.)</li>
+                       <li>'내 목소리' 또는 '듀엣곡' 상품 선택 시, 목소리 학습(SVC)을 위해 <strong>고품질의 원본 목소리 녹음 파일</strong>이 필수입니다.</li>
+                       <li>제공해주시는 목소리 녹음 파일의 퀄리티(선명도, 잡음 유무 등)가 최종 음원의 품질에 <strong>큰 영향</strong>을 미칩니다.</li>
+                       <li>스마트폰 녹음도 가능하나, 가급적 잡음 없는 조용한 환경에서 <strong>마이크를 사용한 녹음</strong>을 권장합니다.</li>
                    </ul>
                </div>
             </div>
@@ -275,7 +306,7 @@
                         <p>사업장 주소: 31470 충남 아산시 배방읍 희망로46번길 45-7 창조빌딩 5층 511호</p>
                         <p>대표 전화: <a href="tel:050713871935">0507-1387-1935</a></p>
                         <p>사업자 등록번호: 812-04-03257</p>
-                        <p>통신판매업 신고번호: 2024-충남아산-0897 <a href="[여기에_사업자정보확인_URL_삽입]" target="_blank" rel="noopener noreferrer">[사업자정보확인]</a></p>
+                        <p>통신판매업 신고번호: 2024-충남아산-0897 <a href="#">[사업자정보확인]</a></p>
                         <p>개인정보보호책임자: 김길한</p>
                     </div>
     
@@ -292,7 +323,7 @@
                     </div>
                 </div>
             </div>
-            <p class="copyright">&copy; <span id="current-year"></span> QLAUDIO. All Rights Reserved.</p>
+            <p class="copyright">© <span id="current-year"></span> QLAUDIO. All Rights Reserved.</p>
         </div>
     </footer>
 
