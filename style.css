@@ -35,6 +35,7 @@ body {
     line-height: 1.8;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 .container {
@@ -200,6 +201,8 @@ nav ul li a.active::after {
     text-align: center;
     /* background: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3') no-repeat center center/cover; */
     z-index: 1;
+    position: relative; /* 자식 요소(video)의 기준점이 되도록 position 속성 확인 */
+    overflow: hidden; /* #hero 섹션 내부에서만 요소가 보이도록 하여, 넘치는 부분을 잘라냅니다. */
 }
 
 .hero-video {
@@ -691,4 +694,123 @@ footer {
 .section.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+#creation-process {
+    background-color: #111;
+}
+
+.process-steps-wrapper {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem; /* 각 단계 사이의 큰 간격 */
+}
+
+.process-step-alt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+}
+
+/* 짝수 번째 스텝에서 이미지와 텍스트 순서 변경 */
+.process-step-alt.reverse .process-image {
+    order: 2;
+}
+
+.process-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.process-image video { /* img를 video로 변경 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.process-image:hover video { /* img를 video로 변경 */
+    transform: scale(1.05);
+}
+
+.process-text .step-number {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: var(--font-secondary);
+    color: rgba(var(--accent-color-rgb), 0.15); /* 투명한 악센트 컬러 */
+    line-height: 1;
+}
+
+.process-text h3 {
+    font-size: 2.2rem;
+    color: var(--primary-text-color);
+    margin-top: -1.5rem; /* 숫자 위로 살짝 겹치게 */
+    margin-bottom: 1.5rem;
+}
+
+.process-text h3 span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--accent-color);
+    display: block;
+    margin-top: 0.5rem;
+    font-family: var(--font-secondary);
+    letter-spacing: 1px;
+}
+
+.process-text p {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 2.5rem;
+}
+
+.keywords {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.keywords li {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    color: var(--primary-text-color);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    transition: all var(--transition-speed);
+}
+.keywords li:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-color);
+}
+
+.keywords li i {
+    color: var(--accent-color);
+    margin-right: 12px;
+}
+
+/* --- 반응형: Creation Process Section --- */
+@media (max-width: 992px) {
+    .process-step-alt {
+        grid-template-columns: 1fr; /* 한 줄로 쌓기 */
+        gap: 3rem;
+    }
+    .process-step-alt.reverse .process-image {
+        order: 0; /* 모바일에선 순서 고정 (이미지가 항상 위) */
+    }
+}
+@media (max-width: 768px) {
+    .keywords {
+        grid-template-columns: 1fr; /* 모바일에서는 키워드도 한 줄로 */
+    }
+    .process-text h3 {
+        font-size: 1.8rem;
+    }
 }
