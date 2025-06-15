@@ -368,6 +368,9 @@ nav ul li a.active::after {
     position: relative;
     overflow: hidden;
     transition: transform var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+
 }
 
 .pricing-plan:hover {
@@ -422,6 +425,10 @@ nav ul li a.active::after {
     color: var(--secondary-text-color);
     margin-bottom: 2rem;
     min-height: 40px; /* 레이아웃 정렬을 위해 */
+}
+
+.pricing-plan .cta-button {
+    margin-top: auto; /* 버튼을 항상 카드 맨 아래로 밀어냅니다. */
 }
 
 .popular-badge, .pro-badge {
