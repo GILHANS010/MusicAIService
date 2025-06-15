@@ -1064,21 +1064,32 @@ footer {
 }
 
 /* --- Contact Channels --- */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* 왼쪽 버튼 영역을 더 넓게 */
+    align-items: center;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
 .contact-channels {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; /* 모바일에서 버튼이 줄바꿈되도록 함 */
-    margin-bottom: 4rem;
+    flex-direction: column; /* 버튼들을 세로로 쌓음 */
+    gap: 15px;
 }
 
 .contact-button {
-    min-width: 280px;
+    width: 100%; /* 부모 컨테이너에 꽉 차게 */
+    min-width: unset; /* 기존의 최소 너비 제거 */
     font-size: 1.1rem;
-    padding: 15px 30px;
+    padding: 15px 20px;
     border: 1px solid var(--border-color);
     background-color: var(--surface-color);
     color: var(--primary-text-color);
+    display: flex; /* 아이콘과 텍스트 정렬 */
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-button:hover {
@@ -1103,4 +1114,157 @@ footer {
     background-color: #FFDD00;
     border-color: #FFDD00;
     color: #000;
+}
+
+/* QR 코드 영역 스타일 */
+.contact-qr {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--surface-color);
+}
+
+.contact-qr img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.contact-qr p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+/* 반응형: Contact Section */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* 모바일에서는 한 줄로 쌓기 */
+        gap: 2rem;
+    }
+}
+
+/* --- Testimonials Section (New Carousel Design) --- */
+#testimonials {
+    background-color: #111;
+}
+
+.testimonial-carousel-wrapper {
+    position: relative;
+    margin-top: 4rem;
+}
+
+.testimonial-carousel {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.testimonial-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+.testimonial-image-card {
+    flex: 0 0 auto; /* 자식 요소의 크기를 고정 */
+    width: 300px; /* 각 카드의 너비 */
+    height: auto;
+    scroll-snap-align: center; /* 스크롤 시 중앙에 정렬 */
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-speed);
+}
+.testimonial-image-card:hover {
+    transform: translateY(-5px);
+}
+.testimonial-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 좌우 네비게이션 버튼 */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    z-index: 10;
+}
+.carousel-nav:hover {
+    background-color: var(--accent-color);
+    color: #000;
+}
+.carousel-nav.prev {
+    left: -25px;
+}
+.carousel-nav.next {
+    right: -25px;
+}
+
+/* --- Image Lightbox Modal --- */
+#image-lightbox-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed);
+}
+#image-lightbox-container.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    transform: scale(0.95);
+    transition: transform var(--transition-speed);
+}
+#image-lightbox-container.active .lightbox-content {
+    transform: scale(1);
+}
+#lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+.close-lightbox-button {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--bg-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }

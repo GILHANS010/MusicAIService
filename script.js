@@ -161,4 +161,54 @@ document.addEventListener('DOMContentLoaded', () => {
         emailInquiryButton.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodedBody}`;
     }
 
+    // --- 고객 후기 캐러셀 스크립트 ---
+    const carousel = document.querySelector('.testimonial-carousel');
+    const prevButton = document.querySelector('.carousel-nav.prev');
+    const nextButton = document.querySelector('.carousel-nav.next');
+
+    if (carousel && prevButton && nextButton) {
+        const scrollAmount = 320; // 한 번에 스크롤할 너비 (카드 너비 + 갭)
+
+        prevButton.addEventListener('click', () => {
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+
+        nextButton.addEventListener('click', () => {
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    }
+
+    // --- 이미지 확대(라이트박스) 스크립트 ---
+    const lightboxContainer = document.getElementById('image-lightbox-container');
+    if (lightboxContainer) {
+        const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const closeLightboxButton = document.querySelector('.close-lightbox-button');
+        const lightboxOverlay = lightboxContainer.querySelector('.modal-overlay');
+
+        const openLightbox = (imageUrl) => {
+            lightboxImage.setAttribute('src', imageUrl);
+            lightboxContainer.classList.add('active');
+        };
+
+        const closeLightbox = () => {
+            lightboxContainer.classList.remove('active');
+        };
+
+        lightboxTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault(); // 링크의 기본 동작 방지
+                openLightbox(trigger.href);
+            });
+        });
+
+        closeLightboxButton.addEventListener('click', closeLightbox);
+        lightboxOverlay.addEventListener('click', closeLightbox);
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightboxContainer.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
+
 }); // End DOMContentLoaded
