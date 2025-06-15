@@ -891,3 +891,216 @@ footer {
     }
 }
 
+
+/* --- Lyrics Button & Modal --- */
+
+/* 가사 보기 버튼 */
+.lyrics-button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.lyrics-button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+}
+
+.lyrics-button i {
+    margin-right: 8px;
+}
+
+/* 팝업(모달) 컨테이너 */
+#lyrics-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* 기본 상태: 숨김 */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed);
+}
+
+/* 활성화 상태: 보임 */
+#lyrics-modal-container.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 뒷 배경 오버레이 */
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+/* 팝업 콘텐츠 박스 */
+.modal-content {
+    position: relative;
+    background-color: var(--surface-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    
+    /* 나타나는 애니메이션 */
+    transform: scale(0.95);
+    transition: all var(--transition-speed);
+}
+
+#lyrics-modal-container.active .modal-content {
+    transform: scale(1);
+}
+
+/* 닫기 버튼 */
+.close-modal-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--secondary-text-color);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.close-modal-button:hover {
+    color: var(--primary-text-color);
+}
+
+/* 팝업 제목 */
+#modal-title {
+    font-family: var(--font-secondary);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 가사 텍스트 */
+#modal-lyrics {
+    font-family: var(--font-primary);
+    color: var(--primary-text-color);
+    white-space: pre-wrap; /* 자동 줄바꿈 */
+    line-height: 2;
+    font-size: 1rem;
+}
+
+/* --- FAQ Section --- */
+#faq {
+    background-color: var(--bg-color);
+}
+.faq-accordion {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    border-top: 1px solid var(--border-color);
+}
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+}
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+}
+.faq-question span {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+}
+.faq-question i {
+    color: var(--accent-color);
+    transition: transform var(--transition-speed);
+}
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+.faq-answer p {
+    padding: 0 10px 25px 10px;
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* --- Contact Channels --- */
+.contact-channels {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* 모바일에서 버튼이 줄바꿈되도록 함 */
+    margin-bottom: 4rem;
+}
+
+.contact-button {
+    min-width: 280px;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+    color: var(--primary-text-color);
+}
+
+.contact-button:hover {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+}
+
+.contact-button i {
+    margin-right: 10px;
+}
+
+/* 카카오톡 버튼 특별 스타일 */
+.contact-button.kakao {
+    background-color: #FEE500;
+    border-color: #FEE500;
+    color: #191919;
+    font-weight: 700;
+}
+.contact-button.kakao:hover {
+    background-color: #FFDD00;
+    border-color: #FFDD00;
+    color: #000;
+}
