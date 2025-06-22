@@ -1307,3 +1307,262 @@ footer {
 .pricing-plan.pro .original-price {
     font-size: 1.4rem;
 }
+
+/* --- New Service & Process Section --- */
+#pricing { /* ID는 그대로 사용하여 네비게이션 링크 유지 */
+    background-color: #111;
+}
+
+.service-process-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; /* 각 서비스 카드 사이의 간격 */
+}
+
+.service-card {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-speed);
+}
+.service-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.service-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.service-header h3 {
+    font-size: 2rem;
+    color: var(--primary-text-color);
+    margin-bottom: 1rem;
+}
+
+.service-header .service-description {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.7;
+}
+
+.service-header .service-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.service-process-flow h4 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--secondary-text-color);
+    font-weight: 500;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.step-flow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.flow-item {
+    flex: 1;
+    text-align: center;
+    min-width: 120px; /* 최소 너비 확보 */
+}
+
+.flow-icon {
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.flow-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+}
+
+.flow-item p b {
+    color: var(--primary-text-color);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.flow-arrow {
+    flex: 0 0 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--border-color);
+    margin-top: 25px; /* 아이콘과 높이 맞춤 */
+}
+.flow-arrow i.fa-plus {
+    font-size: 1rem;
+}
+
+.service-card .cta-button {
+    display: block;
+    width: fit-content;
+    margin: 3.5rem auto 0 auto;
+    padding: 12px 40px;
+    font-size: 1.1rem;
+}
+
+/* BEST, PRO 뱃지 */
+.popular-badge, .pro-badge {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: #000;
+    padding: 25px 10px 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+}
+.pro-badge { background-color: var(--pro-color); }
+
+
+/* 반응형: 서비스 카드 */
+@media (max-width: 992px) {
+    .step-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    .flow-item {
+        margin-bottom: 1.5rem;
+    }
+    .flow-arrow {
+        transform: rotate(90deg);
+        margin: 0 0 1.5rem 0;
+    }
+    .flow-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        padding: 30px 20px;
+    }
+    .service-header h3 {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- PRO Plan Card Enhancement --- */
+.pro-package-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.pro-package-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.pro-package-item.foundation {
+    border-style: dashed;
+    background-color: rgba(var(--accent-color-rgb), 0.05);
+}
+
+.pro-package-item .flow-icon {
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.package-text h4 {
+    text-align: left;
+    margin: 0 0 5px 0;
+    color: var(--primary-text-color);
+    font-size: 1.1rem;
+}
+
+.package-text p {
+    text-align: left;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+.package-plus-icon {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+
+@keyframes scroll-logos {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.distribution-logo-wrapper {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.distribution-logo-wrapper p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 1.5rem;
+}
+
+.logo-grid ul {
+    display: flex;
+    flex-wrap: wrap; /* 로고가 많아지면 다음 줄로 자동 줄바꿈 */
+    justify-content: center; /* 로고들을 중앙 정렬 */
+    align-items: center;
+    gap: 30px; /* 로고 사이의 간격 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logo-grid li {
+    flex: 0 0 auto;
+}
+
+.logo-grid img {
+    height: 25px; /* 로고 높이 통일 */
+    width: auto;
+    filter: grayscale(100%) opacity(0.6);
+    transition: all var(--transition-speed);
+}
+
+/* 마우스를 올렸을 때 컬러로 변경 (기존 효과 유지) */
+.logo-grid:hover img {
+    filter: grayscale(0%) opacity(1);
+}
