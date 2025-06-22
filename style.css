@@ -1443,31 +1443,26 @@ footer {
 
 
 /* 반응형: 서비스 카드 */
-@media (max-width: 992px) {
-    .step-flow {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-    }
-    .flow-item {
-        margin-bottom: 1.5rem;
-    }
-    .flow-arrow {
-        transform: rotate(90deg);
-        margin: 0 0 1.5rem 0;
-    }
-    .flow-item:last-child {
-        margin-bottom: 0;
-    }
+@media (min-width: 992px) {
+    .footer-left { flex-basis: 30%; text-align: left;}
+    .footer-right { flex-basis: 65%; }
 }
-
-@media (max-width: 768px) {
-    .service-card {
-        padding: 30px 20px;
-    }
-    .service-header h3 {
-        font-size: 1.8rem;
-    }
+.footer-left .logo {
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+@media (min-width: 992px) {
+    .footer-left .logo { justify-content: flex-start; }
+}
+.footer-links { margin: 1.5rem 0; }
+.footer-links a { margin: 0 10px; }
+.social-links { 
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+@media (min-width: 992px) {
+    .social-links { justify-content: flex-start; }
 }
 
 /* --- PRO Plan Card Enhancement --- */
@@ -1565,4 +1560,30 @@ footer {
 /* 마우스를 올렸을 때 컬러로 변경 (기존 효과 유지) */
 .logo-grid:hover img {
     filter: grayscale(0%) opacity(1);
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 2rem; }
+    nav ul, .nav-cta { display: none; }
+    #hero {
+        min-height: auto;
+        padding: 150px 0;
+        height: auto;
+    }
+    .service-card {
+        padding: 30px 20px;
+    }
+    .service-header h3 {
+        font-size: 1.8rem;
+    }
+    .contact-wrapper,
+    .process-step-alt,
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+    .process-step-alt.reverse .process-image {
+        order: 0;
+    }
+    .carousel-nav { display: none; }
 }
