@@ -1624,3 +1624,38 @@ footer {
     }
     .carousel-nav { display: none; }
 }
+
+/* CTA 버튼 강조 애니메이션 */
+@keyframes cta-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(197,164,126, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(197,164,126, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(197,164,126, 0); }
+  }
+  
+  .cta-button,
+  .contact-button {
+    position: relative;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #c5a47e 0%, #ffe2b0 100%);
+    color: #191919 !important;
+    border: none;
+    box-shadow: 0 4px 20px rgba(197,164,126,0.15);
+    animation: cta-pulse 2.5s infinite;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  }
+  
+  .cta-button:hover,
+  .contact-button:hover {
+    transform: scale(1.07);
+    background: linear-gradient(90deg, #ffe2b0 0%, #c5a47e 100%);
+    box-shadow: 0 8px 32px rgba(197,164,126,0.25);
+    color: #000 !important;
+  }
+  
+  /* Hero CTA는 더 크게 */
+  .hero-cta {
+    font-size: 1.25rem;
+    padding: 18px 55px;
+  }
